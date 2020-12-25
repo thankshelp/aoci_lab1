@@ -109,6 +109,8 @@ namespace Lab_1
         {
             var frame = capture.QueryFrame();
 
+            imageBox1.Image = frame;
+
             Image<Bgr, byte> image = frame.ToImage<Bgr, byte>();
 
             Image<Gray, byte> grayImage = image.Convert<Gray, byte>();
@@ -170,8 +172,8 @@ namespace Lab_1
             var tempImage = grayImage.PyrDown();
             var destImage = tempImage.PyrUp();
 
-            cannyThreshold = 20;
-            cannyThresholdLinking = 30;
+            //cannyThreshold = 20;
+            //cannyThresholdLinking = 30;
             Image<Gray, byte> cannyEdges = destImage.Canny(cannyThreshold, cannyThresholdLinking);
 
             var cannyEdgesBgr = cannyEdges.Convert<Bgr, byte>();
